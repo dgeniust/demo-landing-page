@@ -167,16 +167,16 @@ const CarouselContent = () => {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white p-6">
+      <div className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white p-4 sm:p-6">
         <div 
-          className="flex transition-transform duration-700 ease-out gap-6"
+          className="flex transition-transform duration-700 ease-out gap-4 sm:gap-6"
           style={{ transform: `translateX(-${currentSlide * (100 / itemsPerView)}%)` }}
         >
           {carouselData.map((item) => (
-            <div key={item.id} className={`flex-shrink-0`} style={{ width: `${100 / itemsPerView}%` }}>
-              <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:scale-105 mx-2">
+            <div key={item.id} className="flex-shrink-0" style={{ width: `${100 / itemsPerView}%` }}>
+              <div className="bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:scale-105 mx-1 sm:mx-2">
                 {/* Image Section */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-36 sm:h-48 overflow-hidden">
                   <Image 
                     src={item.image} 
                     alt={item.title}
@@ -185,61 +185,61 @@ const CarouselContent = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                  
+
                   {/* Bookmark */}
-                  <button className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all">
-                    <Bookmark className="w-4 h-4 text-white" />
+                  <button className="absolute top-2 sm:top-4 right-2 sm:right-4 p-1 sm:p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all">
+                    <Bookmark className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                   </button>
 
                   {/* Company Logo */}
-                  <div className="absolute top-4 left-4">
-                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
-                      <span className="text-2xl">{item.logo}</span>
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-lg sm:text-2xl">{item.logo}</span>
                     </div>
                   </div>
 
                   {/* Rating */}
-                  <div className="absolute bottom-4 right-4 flex items-center space-x-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 flex items-center space-x-1 bg-white/90 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                     <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                    <span className="text-xs font-semibold text-gray-800">{item.rating}</span>
+                    <span className="text-[10px] sm:text-xs font-semibold text-gray-800">{item.rating}</span>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-2 sm:mb-3">
+                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-blue-100 text-blue-800 text-[10px] sm:text-xs font-medium rounded-full">
                       {item.companyName}
                     </span>
-                    <span className="text-green-600 font-semibold text-sm">{item.positions}</span>
+                    <span className="text-green-600 font-semibold text-xs sm:text-sm">{item.positions}</span>
                   </div>
 
-                  <h3 className="font-bold text-gray-900 text-lg mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-1 sm:mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
                     {item.title}
                   </h3>
-                  
-                  <p className="text-blue-600 font-medium text-sm mb-3">
+
+                  <p className="text-blue-600 font-medium text-xs sm:text-sm mb-2 sm:mb-3">
                     {item.subtitle}
                   </p>
-                  
-                  <p className="text-gray-600 text-sm line-clamp-3 mb-4 leading-relaxed">
+
+                  <p className="text-gray-600 text-xs sm:text-sm line-clamp-3 mb-3 sm:mb-4 leading-relaxed">
                     {item.description}
                   </p>
 
                   {/* Company Details */}
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center space-x-2 text-xs text-gray-500">
+                  <div className="space-y-1 sm:space-y-2 mb-3 sm:mb-4">
+                    <div className="flex items-center space-x-1 sm:space-x-2 text-[10px] sm:text-xs text-gray-500">
                       <Map className="w-3 h-3" />
                       <span>{item.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-xs text-gray-500">
+                    <div className="hidden sm:flex items-center space-x-2 text-xs text-gray-500">
                       <Users className="w-3 h-3" />
                       <span>{item.employees} nhân viên</span>
                     </div>
                   </div>
 
                   {/* Action Button */}
-                  <button className="w-full bg-[var(--primary-color-website)] text-white font-medium py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  <button className="w-full bg-[var(--primary-color-website)] text-white font-medium py-2 sm:py-3 px-4 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
                     Xem chi tiết →
                   </button>
                 </div>
@@ -251,18 +251,19 @@ const CarouselContent = () => {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 z-10"
+          className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-10"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-700" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
         </button>
         
         <button
           onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 z-10"
+          className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-10"
         >
-          <ChevronRight className="w-6 h-6 text-gray-700" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
         </button>
       </div>
+
 
       {/* Dots Indicator */}
       <div className="flex justify-center items-center space-x-3 py-6 bg-gray-50">
