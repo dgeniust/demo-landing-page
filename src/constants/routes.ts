@@ -1,0 +1,15 @@
+export const ROUTES = {
+    HOME: "/home",
+    LOGIN: "/login",
+    REGISTER: "/register",
+    FORGOT_PASSWORD: "/forgot-password",
+    PROFILE: (id: string) => `/profile/${id}`,
+    JOBS: "/jobs",
+    CREATE_CV: "/create-cv",
+    FORMAT_CV: "/format-cv",
+    TEST_CHARACTER: "/test-character",
+    FRESHER_JOBS: "/freshers-jobs",
+    MOCK_INTERVIEW: "/mock-interview",
+    MBTI: "/tool/mbti",
+    MBTI_TEST: "/tool/mbti/multiple-choice",
+}
