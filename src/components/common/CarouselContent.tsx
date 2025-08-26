@@ -107,22 +107,30 @@ const CarouselContent = () => {
     }
   ];
 
-  const itemsPerView = 3;
+  const [itemsPerView, setItemsPerView] = useState(3); // mặc định 3 cho desktop
+  // cập nhật itemsPerView theo screen width
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) setItemsPerView(1);      // mobile
+      else if (window.innerWidth < 1024) setItemsPerView(2); // tablet
+      else setItemsPerView(3);                              // desktop
+    };
+
+    updateItemsPerView();
+    window.addEventListener("resize", updateItemsPerView);
+    return () => window.removeEventListener("resize", updateItemsPerView);
+  }, []);
+
   const maxSlide = Math.ceil(carouselData.length / itemsPerView) - 1;
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) > maxSlide ? 0 : prev + 1);
-  },[maxSlide]);
+  }, [maxSlide]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1) < 0 ? maxSlide : prev - 1);
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  // Auto-play functionality
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
@@ -261,7 +269,7 @@ const CarouselContent = () => {
         {Array.from({ length: maxSlide + 1 }).map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
+            onClick={() => setCurrentSlide(index)}
             className={`transition-all duration-300 ${
               index === currentSlide
                 ? 'w-8 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full'

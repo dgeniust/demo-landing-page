@@ -235,150 +235,162 @@ const LandingPage = () => {
             <div className='w-full h-full mt-8'>
                 <MarqueeScrolling reviews={reviews}/>
             </div>
-            <div className='w-full h-fit bg-gray-50 mt-8'>
-                <div className='flex items-center justify-center border border-gray-200/50 p-4'>
+            <div className="w-full bg-gray-50 mt-8 px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 border border-gray-200/50 p-4">
                     {actionPreview.map((item, index) => (
-                        <div className="max-w-xs p-4" key={index}>
-                            <div className='mb-2'>
-                                {item.icon}
-                            </div>
-                            <h3 className="text-lg font-semibold text-[var(--primary-color-wesite)] mb-2">{item.title}</h3>
-                            <p className="text-gray-600 mb-4">{item.description}</p>
-                            <Link 
-                                className="bg-transparent py-2 text-red-500 rounded-lg font-medium hover:underline hover:italic flex flex-row items-center"
-                                href={item.href}
-                            >
-                                <p>{item.action}</p>
-                                <ArrowRight className="w-4 h-4 ml-2 inline" />
-                            </Link>
+                    <div
+                        key={index}
+                        className="p-6 rounded-xl shadow-sm bg-white hover:shadow-md transition"
+                    >
+                        <div className="mb-3 text-primary">
+                        {item.icon}
                         </div>
+                        <h3 className="text-lg font-semibold text-[var(--primary-color-wesite)] mb-2">
+                        {item.title}
+                        </h3>
+                        <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                        {item.description}
+                        </p>
+                        <Link
+                        className="text-red-500 font-medium hover:underline hover:italic flex items-center"
+                        href={item.href}
+                        >
+                        <span>{item.action}</span>
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                    </div>
                     ))}
                 </div>
-            </div>
+                </div>
+
+
             <div className='w-full h-fit bg-gray-50 mt-8'>
                 <CarouselContent />
             </div>
             <div className='w-full h-fit bg-gray-50 mt-8'>
                 <PopularCompany />
             </div>
-            {/* Why Choose Us Section - Improved */}
-            <div className='w-full bg-white py-20'>
-                <div className="h-full mx-auto px-4 sm:px-6 lg:px-8">
-                    <BlurFade delay={0.5} inView>
-                        
-                        <div className='flex items-center justify-center'>
-                            <div className="inline-flex items-center px-4 py-2 bg-[#47C269]/10 text-[#47C269] rounded-full text-sm font-medium mb-6">
-                                <Star className="w-4 h-4 mr-2" />
-                                Tại sao chọn MeeJob?
-                            </div>
-                        </div>
-                                    
-                        <div className="grid lg:grid-cols-2 gap-16 items-center w-full h-full">
-                            {/* Left side - Image/Visual */}
-                            <div className="relative">
-                                <div className="relative z-10 w-[80%] mx-auto animate-fadeIn">
-                                    {/* Main illustration container */}
-                                    <div className="bg-gradient-to-br from-[#47C269]/10 to-[#47C269]/5 rounded-3xl p-8 border border-[#47C269]/20">
-                                        <div className="grid grid-cols-2 gap-6">
-                                            {functionReview.map((item, index) => {
-                                                return (
-                                                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300" key={index}>
-                                                        <div className="w-12 h-12 bg-[#47C269]/10 rounded-xl flex items-center justify-center mb-4">
-                                                            {item.icon}
-                                                        </div>
-                                                        <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                                                        <p className="text-sm text-gray-600">{item.description}</p>
-                                                    </div>
-                                                )
-                                            }
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                {/* Background decorative elements */}
-                                <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#47C269]/20 rounded-full blur-xl"></div>
-                                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#47C269]/15 rounded-full blur-xl"></div>
-                            </div>
-
-                            {/* Right side - Content */}
-                            <div className="space-y-8">
-                                <div>
-                                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                                        Nền tảng tuyển dụng
-                                        <span className="block text-[#47C269]">hàng đầu Việt Nam</span>
-                                    </h2>
-                                    
-                                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                        MeeJob kết nối ứng viên tài năng với các cơ hội nghề nghiệp tuyệt vời từ hàng nghìn doanh nghiệp uy tín. Chúng tôi cam kết mang đến trải nghiệm tìm kiếm việc làm hiệu quả và chuyên nghiệp nhất.
-                                    </p>
-                                </div>
-
-                                {/* Feature list */}
-                                <div className="space-y-6">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-[#47C269]/10 rounded-lg flex items-center justify-center">
-                                            <div className="w-2 h-2 bg-[#47C269] rounded-full"></div>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-gray-900 mb-1">Công nghệ AI tiên tiến</h3>
-                                            <p className="text-gray-600">Hệ thống gợi ý việc làm thông minh dựa trên kỹ năng và kinh nghiệm của bạn</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-[#47C269]/10 rounded-lg flex items-center justify-center">
-                                            <div className="w-2 h-2 bg-[#47C269] rounded-full"></div>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-gray-900 mb-1">Mạng lưới doanh nghiệp rộng lớn</h3>
-                                            <p className="text-gray-600">Hợp tác với hơn 10,000+ công ty từ startup đến tập đoàn đa quốc gia</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-[#47C269]/10 rounded-lg flex items-center justify-center">
-                                            <div className="w-2 h-2 bg-[#47C269] rounded-full"></div>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-gray-900 mb-1">Hỗ trợ toàn diện</h3>
-                                            <p className="text-gray-600">Từ tạo CV, luyện phỏng vấn đến tư vấn định hướng nghề nghiệp</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* CTA Buttons */}
-                                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <button className="px-8 py-4 bg-[#47C269] text-white rounded-xl hover:bg-[#47C269]/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                                        <span>Tìm việc ngay</span>
-                                        <ArrowRight className="w-5 h-5" />
-                                    </button>
-                                    
-                                    <button className="px-8 py-4 border-2 border-[#47C269] text-[#47C269] rounded-xl hover:bg-[#47C269] hover:text-white transition-all duration-300 font-semibold flex items-center justify-center space-x-2">
-                                        <span>Tìm hiểu thêm</span>
-                                    </button>
-                                </div>
-
-                                {/* Stats */}
-                                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-                                    <div className="text-center">
-                                        <div className="text-2xl font-bold text-[#47C269] mb-1">50K+</div>
-                                        <div className="text-sm text-gray-600">Việc làm mới</div>
-                                    </div>
-                                    <div className="text-center">
-                                        <div className="text-2xl font-bold text-[#47C269] mb-1">100K+</div>
-                                        <div className="text-sm text-gray-600">Ứng viên</div>
-                                    </div>
-                                    <div className="text-center">
-                                        <div className="text-2xl font-bold text-[#47C269] mb-1">95%</div>
-                                        <div className="text-sm text-gray-600">Tỷ lệ thành công</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </BlurFade>
+            {/* Why Choose Us Section - Responsive + Polished */}
+            <div className="w-full bg-white py-16 sm:py-20">
+            <div className="h-full mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
+                <BlurFade delay={0.5} inView>
+                {/* Label */}
+                <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center px-4 py-2 bg-[#47C269]/10 text-[#47C269] rounded-full text-sm font-medium mb-8">
+                    <Star className="w-4 h-4 mr-2" />
+                    Tại sao chọn MeeJob?
+                    </div>
                 </div>
+
+                {/* Grid 2 cột trên desktop, 1 cột trên mobile */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full h-full">
+                    {/* Left side - Features */}
+                    <div className="relative order-2 lg:order-1">
+                    <div className="relative z-10 w-full sm:w-[80%] mx-auto animate-fadeIn">
+                        <div className="bg-gradient-to-br from-[#47C269]/10 to-[#47C269]/5 rounded-3xl p-6 sm:p-8 border border-[#47C269]/20">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            {functionReview.map((item, index) => (
+                            <div
+                                className="bg-white rounded-2xl p-5 sm:p-6 shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300"
+                                key={index}
+                            >
+                                <div className="w-12 h-12 bg-[#47C269]/10 rounded-xl flex items-center justify-center mb-4">
+                                {item.icon}
+                                </div>
+                                <h4 className="font-semibold text-gray-900 mb-2 text-base sm:text-lg">
+                                {item.title}
+                                </h4>
+                                <p className="text-sm text-gray-600 leading-relaxed">
+                                {item.description}
+                                </p>
+                            </div>
+                            ))}
+                        </div>
+                        </div>
+                    </div>
+
+                    {/* Decorative */}
+                    <div className="absolute -top-6 -left-6 w-20 h-20 sm:w-24 sm:h-24 bg-[#47C269]/20 rounded-full blur-xl"></div>
+                    <div className="absolute -bottom-6 -right-6 w-24 h-24 sm:w-32 sm:h-32 bg-[#47C269]/15 rounded-full blur-xl"></div>
+                    </div>
+
+                    {/* Right side - Content */}
+                    <div className="order-1 lg:order-2 space-y-8">
+                    <div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        Nền tảng tuyển dụng
+                        <span className="block text-[#47C269]">hàng đầu Việt Nam</span>
+                        </h2>
+                        <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        MeeJob kết nối ứng viên tài năng với các cơ hội nghề nghiệp tuyệt vời từ hàng nghìn doanh nghiệp uy tín. Chúng tôi cam kết mang đến trải nghiệm tìm kiếm việc làm hiệu quả và chuyên nghiệp nhất.
+                        </p>
+                    </div>
+
+                    {/* Feature list */}
+                    <div className="space-y-5">
+                        {[
+                        {
+                            title: "Công nghệ AI tiên tiến",
+                            desc: "Hệ thống gợi ý việc làm thông minh dựa trên kỹ năng và kinh nghiệm của bạn",
+                        },
+                        {
+                            title: "Mạng lưới doanh nghiệp rộng lớn",
+                            desc: "Hợp tác với hơn 10,000+ công ty từ startup đến tập đoàn đa quốc gia",
+                        },
+                        {
+                            title: "Hỗ trợ toàn diện",
+                            desc: "Từ tạo CV, luyện phỏng vấn đến tư vấn định hướng nghề nghiệp",
+                        },
+                        ].map((f, i) => (
+                        <div className="flex items-start space-x-4" key={i}>
+                            <div className="flex-shrink-0 w-8 h-8 bg-[#47C269]/10 rounded-lg flex items-center justify-center">
+                            <div className="w-2 h-2 bg-[#47C269] rounded-full"></div>
+                            </div>
+                            <div>
+                            <h3 className="font-semibold text-gray-900 mb-1 text-base sm:text-lg">
+                                {f.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm sm:text-base">
+                                {f.desc}
+                            </p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button className="px-6 sm:px-8 py-3 sm:py-4 bg-[#47C269] text-white rounded-xl hover:bg-[#47C269]/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <span>Tìm việc ngay</span>
+                        <ArrowRight className="w-5 h-5" />
+                        </button>
+
+                        <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#47C269] text-[#47C269] rounded-xl hover:bg-[#47C269] hover:text-white transition-all duration-300 font-semibold flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <span>Tìm hiểu thêm</span>
+                        </button>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-8 border-t border-gray-200">
+                        <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-[#47C269] mb-1">50K+</div>
+                        <div className="text-xs sm:text-sm text-gray-600">Việc làm mới</div>
+                        </div>
+                        <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-[#47C269] mb-1">100K+</div>
+                        <div className="text-xs sm:text-sm text-gray-600">Ứng viên</div>
+                        </div>
+                        <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-[#47C269] mb-1">95%</div>
+                        <div className="text-xs sm:text-sm text-gray-600">Tỷ lệ thành công</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </BlurFade>
             </div>
+            </div>
+
             <div className='w-full h-fit bg-gray-50 mt-8'>
                 <BlogContent />
             </div>
